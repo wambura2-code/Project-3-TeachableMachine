@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 3 - Teachable Machine</title>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+<header>
+    <h1>Project 3: Teachable Machine</h1>
+</header>
+
+<section>
+    <h2>My Machine Learning Model</h2>
+    <p>This project demonstrates a custom image classification using Google's Teachable Machine.</p>
+    <video id="demoVideo" controls width="600" src="videos/demo.mp4"></video>
+</section>
+
+<section>
+    <h2>Try It Yourself</h2>
+    <button id="startButton">Start Classification</button>
+    <div id="webcam-container"></div>
+    <div id="label-container"></div>
+</section>
+
+<!-- TensorFlow.js and Teachable Machine Library -->
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+<script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image"></script>
+
+<!-- Your custom JS -->
+<script src="js/script.js"></script>
+</body>
+</html>
+
