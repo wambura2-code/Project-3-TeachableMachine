@@ -1,4 +1,4 @@
-const URL = "./model/";  // <-- Corrected folder name
+const URL = "./model/";  // path to your model folder
 
 let model, webcam, labelContainer, maxPredictions;
 
@@ -13,19 +13,23 @@ async function init() {
         model = await tmImage.load(modelURL, metadataURL);
     } catch (err) {
         console.error("Error loading model:", err);
+        alert("Failed to load model. Check console for details.");
         return;
     }
+
     maxPredictions = model.getTotalClasses();
 
     // Setup webcam
     const flip = true;
     webcam = new tmImage.Webcam(300, 300, flip);
-    await webcam.setup();
+    await webcam.setup(); // request access
     await webcam.play();
     window.requestAnimationFrame(loop);
 
+    // Add webcam to page
     document.getElementById("webcam-container").appendChild(webcam.canvas);
 
+    // Setup label container
     labelContainer = document.getElementById("label-container");
     for (let i = 0; i < maxPredictions; i++) {
         labelContainer.appendChild(document.createElement("div"));
@@ -34,11 +38,12 @@ async function init() {
 
 // Update webcam and predict
 async function loop() {
-    webcam.update();
+    webcam.update(); // update the webcam frame
     await predict();
     window.requestAnimationFrame(loop);
 }
 
+// Run the webcam image through the model
 async function predict() {
     const prediction = await model.predict(webcam.canvas);
     for (let i = 0; i < maxPredictions; i++) {

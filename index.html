@@ -11,24 +11,66 @@
     <h1>Project 3: Teachable Machine</h1>
 </header>
 
-<section>
-    <h2>My Machine Learning Model</h2>
-    <p>This project demonstrates a custom image classification using Google's Teachable Machine.</p>
-    <video id="demoVideo" controls width="600" src="videos/demo.mp4"></video>
+<!-- Project Statement Section -->
+<section id="project-statement">
+    <h2>Project Statement</h2>
+    <p>
+        To start for this project, I decided to created a machine learning model that classifies body language into a subset of three categories: Approachable, Neutral, and/or Unapproachable. Next I decided to to approach the training of the model to be somewhat througout in it's number of images so that I was doing it justice to hopefullu accurately predict better. The model was trained with 72 images of Approachable, 47 images of Neutral, and 63 images of Unapproachable poses (which I deemed worth at the start of for training the machine). I did not change any other aspects such as learning time etc and left all those parameter as defaults. The primary goal that was expected to be achieved was to explore how machine learning can interpret human behavior, how subjective/nuanced decisions impact model training (even when earnest), and how the simple fact that AI can misclassify ambiguous cases reflects broader overarching themes from Joy Buolamwini's Unmasking AI.
+    </p>
+
+    <p>
+        Throughout the process, I realized the Neutral class was the most difficult for the model to classify accurately. I spent the most time with this class and trying to get it right. This misclassification highlights the subjectivity involved in labeling human behavior and demonstrates how machine learning reflects the biases of its creators (this can even be thought all the way down to the very code/systems used to run these programs in the first place/the websit/ how the data is stored etc.), similar to the “coded gaze” concept described in Buolamwini’s book. My decisions about what counted as Approachable or Unapproachable directly shaped the model’s interpretation of behavior. I'm still perplexed as too how to properly model a classfication of nuetral behavior for a machine learning much less societally at large. Thier are unique showings of neutral behaviors, there are also differnt contexts in which neutral may be attributed to apporachable ohterwise so to circumvent this I choose to incoporate images of myself that were the most universal expresssions.
+    </p>
+
+    <p>
+        Additionally, the imbalance in the number of images affected model performance. Approachable and Unapproachable were classified more accurately, while Neutral often confused the AI ( a small-scale example of how real-world AI systems can misinterpret or exclude certain populations). Within broader contexts examples like the judicial systems use of algorithms to determine a persons risk of reoffending came to mind. These observations give an interesting message when deconstructed. It also ties directly to some of the readings on intersectionality as well as implicit bias, emphasizing the important nature of keeping true to a careful dataset design.
+    </p>
+
+    <p>
+        Overall, this project made me more aware of the ethical and practical considerations in AI development. Even a simple body language classifier illustrates how human decisions, dataset composition, or even ambiguous categories (things that thrive in defining what nuance can look like in topics like approchablity) influence machine learning outcomes. The project reinforces Buolamwini’s argument that AI systems are never neutral and require careful design to ensure fairness and equity or else issues arise.
+    </p>
 </section>
 
-<section>
+<!-- Model Demo Section -->
+<section id="model-demo">
+    <h2>Machine Learning Model Demo</h2>
+    <p>This project demonstrates a custom image classification using Google's Teachable Machine.</p>
+    <video id="demoVideo" controls width="600" src="videos/body_language_demo.mp4"></video>
+</section>
+
+<!-- Interactive Section -->
+<section id="interactive-demo">
     <h2>Try It Yourself</h2>
     <button id="startButton">Start Classification</button>
     <div id="webcam-container"></div>
     <div id="label-container"></div>
 </section>
 
-<!-- TensorFlow.js and Teachable Machine Library -->
-<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
-<script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image"></script>
+<!-- Machine Learning Reflection Section -->
+<section id="reflection">
+    <h2>Machine Learning Reflection</h2>
+    <p>
+        In this project, I constructed a model that will attempt to input body language into 3 categories: Approachable, Neutral, or Unapproachable. The model was trained with 72 images of Approachable, 47 images of Neutral, and 63 images of Unapproachable poses with me in the same background/clothes/etc (this is to keep a reasonable control of deviation).
+    </p>
 
-<!-- Your custom JS -->
+    <p>
+        Throughout the training, my eyes narrowed in on the Neutral class's tricky parameter to catch. It was by far the most trickiest and difficult for the model to classify accurately (which begs the question as too why that would be). This misclassification does a splendid job at highlighting the subjectivity involved in labeling human behavior and demonstrates how machine learning can reflect the biases of its creators, similar to the “coded gaze” concept described in Joy Buolamwini’s Unmasking AI. My own decisions about what counted as Approachable or Unapproachable directly shaped how the model interpreted behavior. Even if I was trying to follow universal signals that I belived the greater outside world usually portrayed "neutral" as being.
+    </p>
+
+    <p>
+        Additionally, the imbalance in the number of images between classes most probably affected model performance, showing how underrepresentation in training data can lead to misclassification. The model performed best for Approachable and Unapproachable poses, but Neutral often confused the AI, a small scale example of how real world AI systems can misinterpret or exclude certain populations. On an intersectionality plane this could include women vs men or different cultural groups, ethincities, and so on.
+    </p>
+
+    <p>
+        Overall, this endeavor made me much more adept in my awareness of the ethical and practical considerations in AI development which is a core reason for taking this class as well as my interest in creating more equitable policies that keep tech an even playing field for all users. Even a simple body language classifier can illustrate how human decisions, dataset composition, as well as ambiguous categories influence machine learning outcomes. This reinforces Buolamwini’s argument that AI systems are never neutral and require careful design to ensure fairness and equity.
+    </p>
+</section>
+
+<!-- TensorFlow.js and Teachable Machine Library -->
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"></script>
+<script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+
+<!-- Custom JS -->
 <script src="js/script.js"></script>
 </body>
 </html>
